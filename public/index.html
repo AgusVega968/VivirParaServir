@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Fundación Vivir para Servir - Sistema Operativo</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <header class="navbar">
+    <div class="logo">
+      <h2>Fundación Vivir para Servir</h2>
+      <p>Gestión Operativa, Cocina Comunitaria y Rutas de Entrega</p>
+    </div>
+  </header>
+
+  <main class="contenedor">
+    <!-- PANEL HERO: RECETARIO INTELIGENTE SIN SOBRANTES -->
+    <!-- PANEL HERO: RECETARIO INTELIGENTE -->
+    <section class="tarjeta hero-calculo">
+      <div class="info-viandas" style="flex: 1 1 320px;">
+        <h3 id="titulo-plato">Recetario Inteligente</h3>
+        <p>Cálculo exacto basado en el padrón de comensales para <strong>eliminar sobrantes</strong>.</p>
+        
+        <!-- SELECTOR DE PLATOS DISPONIBLES -->
+        <div style="margin-top: 0.8rem;">
+          <label for="select-plato" style="font-weight: 600; font-size: 0.85rem; color: #166534;">Plato a preparar:</label>
+          <select id="select-plato" style="margin-top: 0.3rem; max-width: 280px;"></select>
+        </div>
+
+        <div class="contador-box">
+          <span class="contador-numero" id="total-viandas-badge">0</span>
+          <span class="contador-label">Viandas requeridas para hoy</span>
+        </div>
+      </div>
+
+      <div class="insumos-calculados" style="flex: 1 1 300px;">
+        <h4>Insumos requeridos para la jornada:</h4>
+        <ul id="lista-receta-requerida"></ul>
+        <button id="btn-cocinar-exacto" class="btn-principal" style="margin-top: 1rem;">
+          Registrar Cocina (Descontar de Stock)
+        </button>
+      </div>
+    </section>
+
+    <!-- MÓDULO PARA REGISTRAR NUEVO PLATO -->
+    <section class="tarjeta">
+      <h3>Crear Nuevo Plato / Receta</h3>
+      <p class="descripcion">Definí un plato y la porción requerida por vianda para un insumo del almacén.</p>
+
+      <form id="form-nueva-receta" class="formulario-inline">
+        <input type="text" id="receta-nombre" placeholder="Nombre del plato (ej: Arroz Primavera)" required>
+        <select id="receta-insumo-1" required>
+          <option value="" disabled selected>Seleccionar insumo base</option>
+        </select>
+        <input type="number" id="receta-porcion-1" step="0.01" placeholder="Cantidad por vianda (ej: 0.12)" min="0.01" required style="max-width: 220px;">
+        <button type="submit" class="btn-secundario">Guardar Plato</button>
+      </form>
+    </section>
+
+    <!-- MÓDULO 1: PADRÓN Y LOGÍSTICA DE REPARTO -->
+    <section class="tarjeta">
+      <h3>Padrón de Familias y Rutas de Reparto</h3>
+      <p class="descripcion">Registro de beneficiarios por barrio y modalidad de recepción.</p>
+
+      <form id="form-beneficiario" class="formulario-inline">
+        <input type="text" id="ben-nombre" placeholder="Nombre titular / Familia" required>
+        <input type="text" id="ben-barrio" placeholder="Barrio / Dirección" required>
+        <input type="number" id="ben-porciones" placeholder="Porciones" min="1" required style="max-width: 120px;">
+        <select id="ben-metodo" required>
+          <option value="Reparto">Reparto barrial</option>
+          <option value="Retira en sede">Retira en sede</option>
+        </select>
+        <button type="submit" class="btn-secundario">Agregar al Padrón</button>
+      </form>
+
+      <table class="tabla">
+        <thead>
+          <tr>
+            <th>Beneficiario</th>
+            <th>Barrio / Destino</th>
+            <th>Porciones</th>
+            <th>Modalidad</th>
+            <th>Estado Entrega</th>
+          </tr>
+        </thead>
+        <tbody id="tabla-beneficiarios"></tbody>
+      </table>
+    </section>
+
+    <!-- MÓDULO 2: INVENTARIO DE INSUMOS -->
+    <section class="tarjeta">
+      <h3>Inventario y Conciliación Post-Cocina</h3>
+      <p class="descripcion">Control de existencias y ajuste manual de remanentes.</p>
+
+      <form id="form-descuento" class="formulario-inline">
+        <select id="select-insumo" required>
+          <option value="" disabled selected>Seleccionar insumo</option>
+        </select>
+        <input type="number" id="input-cantidad" step="0.1" placeholder="Cantidad usada" min="0.1" required>
+        <button type="submit" class="btn-principal">Descontar Manual</button>
+      </form>
+
+      <table class="tabla">
+        <thead>
+          <tr>
+            <th>Insumo</th>
+            <th>Stock Disponible</th>
+            <th>Vencimiento</th>
+            <th>Alerta</th>
+          </tr>
+        </thead>
+        <tbody id="tabla-insumos"></tbody>
+      </table>
+    </section>
+
+    <!-- MÓDULO 3: TABLERO DE TAREAS Y VOLUNTARIOS -->
+    <section class="tarjeta">
+      <h3>Tablero Operativo de Voluntarios</h3>
+      <p class="descripcion">Asignación de roles clave para la jornada comunitaria.</p>
+
+      <form id="form-tarea" class="formulario-inline">
+        <select id="select-rol" required>
+          <option value="" disabled selected>Seleccionar rol</option>
+          <option value="Cocinero">Cocinero</option>
+          <option value="Empaque de viandas">Empaque de viandas</option>
+          <option value="Reparto barrial">Reparto barrial</option>
+          <option value="Diseño de flyers">Diseño de flyers</option>
+        </select>
+        <input type="text" id="input-responsable" placeholder="Nombre del voluntario" required>
+        <button type="submit" class="btn-secundario">Asignar Rol</button>
+      </form>
+
+      <div id="grid-tareas" class="grid-tareas"></div>
+    </section>
+  </main>
+
+  <script src="app.js"></script>
+</body>
+</html>

@@ -1,0 +1,233 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+}
+
+body {
+  background-color: #cef2ac;
+  color: #1f2937;
+}
+
+/* NAVBAR INSTITUCIONAL EN VERDE BOSQUE */
+.navbar {
+  background-color: #14532d;
+  color: #f0fdf4;
+  padding: 1.2rem 2rem;
+  box-shadow: 0 2px 5px rgba(20, 83, 45, 0.15);
+}
+
+.navbar h2 {
+  font-size: 1.4rem;
+  font-weight: 700;
+}
+
+.navbar p {
+  font-size: 0.85rem;
+  color: #bbf7d0;
+}
+
+.contenedor {
+  max-width: 1050px;
+  margin: 2rem auto;
+  padding: 0 1rem;
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+/* TARJETAS CON BORDE SUTIL VERDE */
+.tarjeta {
+  background: #ffffff;
+  padding: 1.5rem;
+  border-radius: 10px;
+  border: 1px solid #e2ece5;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.04);
+}
+
+.tarjeta h3 {
+  margin-bottom: 0.3rem;
+  color: #166534;
+  font-weight: 700;
+}
+
+.descripcion {
+  font-size: 0.9rem;
+  color: #64748b;
+  margin-bottom: 1.2rem;
+}
+
+/* HERO CALCULADOR */
+.hero-calculo {
+  border-left: 6px solid #16a34a;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: 1.5rem;
+  background: linear-gradient(to right, #ffffff, #f0fdf4);
+}
+
+.contador-box {
+  margin-top: 1rem;
+  background: #dcfce7;
+  padding: 0.8rem 1.2rem;
+  border-radius: 8px;
+  border: 1px solid #bbf7d0;
+  display: inline-flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.contador-numero {
+  font-size: 2rem;
+  font-weight: 800;
+  color: #15803d;
+}
+
+.contador-label {
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: #166534;
+}
+
+.insumos-calculados ul {
+  list-style: none;
+  margin-top: 0.5rem;
+}
+
+.insumos-calculados li {
+  padding: 0.35rem 0;
+  font-size: 0.95rem;
+  color: #374151;
+}
+
+/* FORMULARIOS */
+.formulario-inline {
+  display: flex;
+  gap: 0.8rem;
+  margin-bottom: 1.5rem;
+  flex-wrap: wrap;
+}
+
+input, select {
+  padding: 0.6rem 0.8rem;
+  border: 1px solid #cbd5e1;
+  border-radius: 6px;
+  font-size: 0.95rem;
+  flex: 1;
+  background-color: #ffffff;
+  color: #1f2937;
+}
+
+input:focus, select:focus {
+  outline: none;
+  border-color: #16a34a;
+  box-shadow: 0 0 0 2px rgba(22, 163, 74, 0.2);
+}
+
+/* BOTONES */
+button {
+  padding: 0.6rem 1.2rem;
+  border: none;
+  border-radius: 6px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: opacity 0.2s, transform 0.1s;
+}
+
+button:hover {
+  opacity: 0.92;
+}
+
+button:active {
+  transform: scale(0.98);
+}
+
+.btn-principal {
+  background-color: #0284c7;
+  color: #ffffff;
+}
+
+.btn-secundario {
+  background-color: #059669;
+  color: #ffffff;
+}
+
+/* TABLAS */
+.tabla {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.tabla th, .tabla td {
+  padding: 0.75rem 1rem;
+  text-align: left;
+  border-bottom: 1px solid #e5e7eb;
+}
+
+.tabla th {
+  background-color: #f0fdf4;
+  color: #166534;
+  font-size: 0.82rem;
+  text-transform: uppercase;
+  letter-spacing: 0.03em;
+  font-weight: 700;
+}
+
+.tabla tr:hover {
+  background-color: #f9fcf9;
+}
+
+/* CARDS DE TAREAS */
+.grid-tareas {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+  gap: 1rem;
+}
+
+.card-tarea {
+  background: #fcfdfc;
+  border: 1px solid #e2ece5;
+  padding: 1rem;
+  border-radius: 8px;
+}
+
+.card-tarea h4 {
+  font-size: 1rem;
+  color: #14532d;
+}
+
+.card-tarea p {
+  font-size: 0.9rem;
+  color: #4b5563;
+  margin: 0.4rem 0 0.8rem 0;
+}
+
+/* BADGES / ESTADOS INTERACTIVOS */
+.badge {
+  display: inline-block;
+  padding: 0.3rem 0.65rem;
+  border-radius: 20px;
+  font-size: 0.75rem;
+  font-weight: 600;
+  cursor: pointer;
+  user-select: none;
+  transition: filter 0.15s;
+}
+
+.badge:hover {
+  filter: brightness(0.95);
+}
+
+.badge-confirmado {
+  background-color: #d1fae5;
+  color: #065f46;
+  border: 1px solid #a7f3d0;
+}
+
+.badge-pendiente {
+  background-color: #fef3c7;
+  color: #92400e;
+  border: 1px solid #fde68a;
+}
