@@ -15,22 +15,26 @@
   </header>
 
   <main class="contenedor">
-    <!-- PANEL HERO: RECETARIO INTELIGENTE SIN SOBRANTES -->
-    <!-- PANEL HERO: RECETARIO INTELIGENTE -->
+    <!-- PANEL HERO: RECETARIO INTELIGENTE VINCULADO A LA JORNADA -->
     <section class="tarjeta hero-calculo">
       <div class="info-viandas" style="flex: 1 1 320px;">
         <h3 id="titulo-plato">Recetario Inteligente</h3>
         <p>Cálculo exacto basado en el padrón de comensales para <strong>eliminar sobrantes</strong>.</p>
         
-        <!-- SELECTOR DE PLATOS DISPONIBLES -->
-        <div style="margin-top: 0.8rem;">
-          <label for="select-plato" style="font-weight: 600; font-size: 0.85rem; color: #166534;">Plato a preparar:</label>
-          <select id="select-plato" style="margin-top: 0.3rem; max-width: 280px;"></select>
+        <div style="display: flex; gap: 1rem; flex-wrap: wrap; margin-top: 0.8rem;">
+          <div>
+            <label for="fecha-jornada" style="font-weight: 600; font-size: 0.85rem; color: #166534;">Fecha de la Jornada:</label><br>
+            <input type="date" id="fecha-jornada" value="2026-10-10" style="margin-top: 0.3rem;">
+          </div>
+          <div>
+            <label for="select-plato" style="font-weight: 600; font-size: 0.85rem; color: #166534;">Plato a preparar:</label><br>
+            <select id="select-plato" style="margin-top: 0.3rem; min-width: 200px;"></select>
+          </div>
         </div>
 
         <div class="contador-box">
           <span class="contador-numero" id="total-viandas-badge">0</span>
-          <span class="contador-label">Viandas requeridas para hoy</span>
+          <span class="contador-label">Viandas requeridas para esta fecha</span>
         </div>
       </div>
 
@@ -58,18 +62,19 @@
       </form>
     </section>
 
-    <!-- MÓDULO 1: PADRÓN Y LOGÍSTICA DE REPARTO -->
+    <!-- MÓDULO: PADRÓN Y RUTAS -->
     <section class="tarjeta">
       <h3>Padrón de Familias y Rutas de Reparto</h3>
-      <p class="descripcion">Registro de beneficiarios por barrio y modalidad de recepción.</p>
+      <p class="descripcion">Registro de beneficiarios por fecha de jornada y modalidad de recepción.</p>
 
       <form id="form-beneficiario" class="formulario-inline">
+        <input type="date" id="ben-fecha" value="2026-10-10" required style="max-width: 160px;">
         <input type="text" id="ben-nombre" placeholder="Nombre titular / Familia" required>
         <input type="text" id="ben-barrio" placeholder="Barrio / Dirección" required>
-        <input type="number" id="ben-porciones" placeholder="Porciones" min="1" required style="max-width: 120px;">
+        <input type="number" id="ben-porciones" placeholder="Porciones" min="1" required style="max-width: 110px;">
         <select id="ben-metodo" required>
-          <option value="Reparto">Reparto barrial</option>
-          <option value="Retira en sede">Retira en sede</option>
+          <option value="Reparto">Reparto Barrial</option>
+          <option value="Retira en sede">Retira en Sede</option>
         </select>
         <button type="submit" class="btn-secundario">Agregar al Padrón</button>
       </form>
@@ -77,6 +82,7 @@
       <table class="tabla">
         <thead>
           <tr>
+            <th>Fecha</th>
             <th>Beneficiario</th>
             <th>Barrio / Destino</th>
             <th>Porciones</th>
@@ -88,7 +94,7 @@
       </table>
     </section>
 
-    <!-- MÓDULO 2: INVENTARIO DE INSUMOS -->
+    <!-- MÓDULO: INVENTARIO -->
     <section class="tarjeta">
       <h3>Inventario y Conciliación Post-Cocina</h3>
       <p class="descripcion">Control de existencias y ajuste manual de remanentes.</p>
@@ -114,12 +120,13 @@
       </table>
     </section>
 
-    <!-- MÓDULO 3: TABLERO DE TAREAS Y VOLUNTARIOS -->
+    <!-- MÓDULO: VOLUNTARIOS -->
     <section class="tarjeta">
       <h3>Tablero Operativo de Voluntarios</h3>
       <p class="descripcion">Asignación de roles clave para la jornada comunitaria.</p>
 
       <form id="form-tarea" class="formulario-inline">
+        <input type="date" id="tarea-fecha" value="2026-10-10" required style="max-width: 160px;">
         <select id="select-rol" required>
           <option value="" disabled selected>Seleccionar rol</option>
           <option value="Cocinero">Cocinero</option>
